@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Empleados - RenovatioGC</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/styles_proyectos.css">
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Conectando, por favor espera...</p>
+    </div>
+    <div id="appContent" style="display: none;">
+        <header>
+            <div class="nombre-principal">
+                <img src="../img/favicon.ico" alt="Company Logo" class="logo"> <!-- Imagen del logo -->
+                Renovatio.GC
+            </div>
+            <div class="info-usuario">
+                <span id="usuario-loggeado">Bienvenido, Ernesto Ortega</span>
+            </div>
+
+            <!-- Checkbox para el menú hamburguesa -->
+            <input type="checkbox" checked id="btn-menu" style="display: none;">
+            <label for="btn-menu" class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </header>
+
+        <div class="contenedor">
+            <nav class="menu" id="menu">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="clientes.html">Clientes</a></li>
+                    <li><a href="asignaciones.html">Asignaciones</a></li>
+                    <li><a class="activo" href="#">Empleados</a></li>
+                    <li><a href="sitio.html">Sitio Web</a></li>
+                </ul>
+
+            </nav>
+
+            <main class="contenido">
+                <h1>Gestión de Empleados</h1>
+                <button id="agregar-empleado">Agregar Empleado</button>
+
+                <!-- Tabla de proyectos -->
+                <table id="tabla-proyectos">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Area Terreno</th>
+                            <th>Tipo Proyecto</th>
+                            <th>Fecha de Inicio</th>
+                            <th>Fecha de Fin</th>
+                            <th>Status</th>
+                            <th>Cliente</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Proyecto Alpha</td>
+                            <td>Desarrollo de una aplicación web</td>
+                            <td>01/01/2024</td>
+                            <td>30/06/2024</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>
+                                <button class="modificar" onclick="modificarProyecto(1)">Modificar</button>
+                                <button class="eliminar" onclick="eliminarProyecto(1)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </main>
+        </div>
+
+        <script src="../js/index.js"></script>
+        <script src="../js/proyectos.js"></script> <!-- El archivo de JavaScript para manejar la interacción -->
+    </div>
+
+</body>
+
+</html>
