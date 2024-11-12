@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RenovatioGC</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+        <p>Conectando, por favor espera...</p>
+    </div>
+
+    <div id="appContent" style="display: none;">
+        <header>
+            <div class="nombre-principal">
+                <img src="img/favicon.ico" alt="Company Logo" class="logo">
+                Renovatio.GC
+            </div>
+            <div class="info-usuario">
+                <span id="usuario-loggeado">Bienvenido, Ernesto Ortega</span>
+            </div>
+
+            <!-- Checkbox para el menú hamburguesa -->
+            <input type="checkbox" checked id="btn-menu" style="display: none;">
+            <label for="btn-menu" class="menu-icon">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+        </header>
+
+        <div class="contenedor">
+            <nav class="menu" id="menu" style="transform: translateX(-100%);">
+                <ul>
+                    <li><a class="activo" href="#">Inicio</a></li>
+                    <li><a href="html/proyectos.html">Proyectos</a></li>
+                    <li><a href="html/clientes.html">Clientes</a></li>
+                    <li><a href="html/asignaciones.html">Asignaciones</a></li>
+                    <li><a href="html/empleados.html">Empleados</a></li>
+                    <li><a href="html/sitio.html">Sitio Web</a></li>
+                </ul>
+            </nav>
+
+            <main class="contenido">
+                <h1>Dashboard</h1>
+                <p>Bienvenido. Aquí podrás administrar tus proyectos.</p>
+
+                <div id="notifications">
+                    <h3>Notificaciones Recientes</h3>
+                    <ul id="notification-list">
+                        <!-- Notifications will be appended here -->
+                    </ul>
+                </div>
+            </main>
+        </div>
+
+        <script src="js/index.js"></script>
+
+    </div>
+</body>
+
+</html>

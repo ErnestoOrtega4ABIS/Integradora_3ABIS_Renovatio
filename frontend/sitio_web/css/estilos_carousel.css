@@ -1,0 +1,41 @@
+/* estilos_carousel.css */
+.carrusel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carrusel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carrusel-image {
+    width: 80%; /* Ajusta según sea necesario */
+    height: 25rem;
+    max-width: 350px; /* Ajusta el tamaño máximo */
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Para la animación de ampliación */
+}
+
+.carrusel-image:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el cursor */
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}

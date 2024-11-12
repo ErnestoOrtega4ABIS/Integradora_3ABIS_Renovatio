@@ -1,0 +1,21 @@
+/* Estilos para la sección "Nosotros" */
+.nosotros {
+    background-color: white; /* Fondo blanco */
+    padding: 40px 20px;
+    text-align: center;
+    color: #333; /* Texto negro para contrastar */
+    border-radius: 15px;
+    margin: 20px;
+}
+
+.nosotros h2 {
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #fafafa; /* Color de texto naranja */
+}
+
+.nosotros p {
+    font-size: 16px;
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 10px 0; /* Margen entre párrafos */
+}
