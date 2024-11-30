@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../js/authfront.js"></script>
+    <title>Modificar Empleado - RenovatioGC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles_empleados.css">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="loadingScreen" class="loading-screen">
+            <div class="spinner"></div>
+            <p>Conectando, por favor espera...</p>
+        </div>
+        <div id="appContent" style="display: none;">
+            <header>
+                <div class="nombre-principal">
+                    <img src="../../img/favicon.ico" alt="Company Logo" class="logo">
+                    Renovatio.GC
+                </div>
+                
+                <div class="info-usuario">
+                    <span id="usuario-loggeado">Bienvenido, Usuario</span>
+                    <button id="admin-cuenta-btn" class="menu-cuenta-btn"><img id="foto-usuario"
+                            src="../../img/default-avatar.png" alt="Foto de perfil" class="foto-usuario"></button>
+                    <ul id="account-menu" class="account-menu oculto">
+                        <li><a href="modificar_credenciales.html" id="change-password-option">Cambiar
+                                Credenciales</a></li>
+                        <li><a href="#" id="logout-option">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+
+                <input type="checkbox" checked id="btn-menu" style="display: none;">
+                <label for="btn-menu" class="menu-icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </label>
+            </header>
+
+            <div class="contenedor">
+                <nav class="menu" id="menu" style="transform: translateX(-100%);">
+                    <ul>
+                        <li><a href="../../home.html">Inicio</a></li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('proyectos')">Proyectos</a>
+                            <ul id="submenu-proyectos" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_proyecto.html" id="nuevo-proyectos">Nuevo</a></li>
+                                <li><a href="../proyectos.html" id="admin-proyectos">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('clientes')">Clientes</a>
+                            <ul id="submenu-clientes" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_cliente.html" id="nuevo-clientes">Nuevo</a></li>
+                                <li><a href="../clientes.html" id="admin-clientes">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('asignaciones')">Asignaciones</a>
+                            <ul id="submenu-asignaciones" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_asignacion.html" id="nuevo-asignaciones">Nuevo</a>
+                                </li>
+                                <li><a href="../asignaciones.html" id="admin-asignaciones">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="activo" href="#" onclick="toggleSubmenu('empleados')">Empleados</a>
+                            <ul id="submenu-empleados" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_empleado.html" id="nuevo-empleados">Nuevo</a></li>
+                                <li><a href="../empleados.html" id="admin-empleados">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('registro')" id="registro-menu">Registro</a>
+                            <ul id="submenu-registro" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_credenciales.html" id="nuevo-empleados">Crear Credenciales</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../sitio.html">Sitio Web</a></li>
+                    </ul>
+                </nav>
+
+                <main class="contenido">
+                    <nav class="ubicacion">
+                        <a href="../../home.html">Inicio</a> /
+                        <a href="../empleados.html">Administrar Empleados</a> /
+                        <a href="#">Modificar Empleado</a>
+                    </nav>
+
+                    <h1>Modificar Empleado</h1>
+                    <p>Bienvenido. Aquí podrás manipular empleados ya existentes. Asegúrate de llenar todos los campos.</p>
+
+                    <div id="modal-empleado">
+                        <form id="form-empleado">
+                            <label for="nombre-empleado">Nombre:</label>
+                            <input type="text" id="nombre-empleado" name="nombre-empleado" required>
+
+                            <label for="apellido-paterno-empleado">Apellido Paterno:</label>
+                            <input type="text" id="apellido-paterno-empleado" name="apellido-paterno-empleado" required>
+
+                            <label for="apellido-materno-empleado">Apellido Materno:</label>
+                            <input type="text" id="apellido-materno-empleado" name="apellido-materno-empleado" required>
+
+                            <label for="genero-empleado">Género:</label>
+                            <select id="genero-empleado" name="genero-empleado" required>
+                                <option value="">Seleccione género</option>
+                                <option value="Male">Masculino</option>
+                                <option value="Female">Femenino</option>
+                                <option value="NoSpecify">No especificado</option>
+                            </select>
+
+                            <label for="telefono-empleado">Teléfono Fijo:</label>
+                            <input type="tel" id="telefono-empleado" name="telefono-empleado" required maxlength="10">
+                            <span id="error-telefono" class="error-msg"></span>
+
+                            <label for="celular-empleado">Celular:</label>
+                            <input type="tel" id="celular-empleado" name="celular-empleado" required maxlength="10">
+                            <span id="error-celular" class="error-msg"></span>
+
+                            <label for="correo-empleado">Correo Electrónico:</label>
+                            <input type="email" id="correo-empleado" name="correo-empleado" required>
+
+                            <label for="colonia-empleado">Colonia:</label>
+                            <input type="text" id="colonia-empleado" name="colonia-empleado" required>
+
+                            <label for="direccion-empleado">Dirección:</label>
+                            <input type="text" id="direccion-empleado" name="direccion-empleado" required>
+
+                            <label for="codigo-postal-empleado">Código Postal:</label>
+                            <input type="text" id="codigo-postal-empleado" name="codigo-postal-empleado" required maxlength="5">
+                            <span id="error-cp" class="error-msg"></span>
+
+                            <div id="botones-accion-empleado">
+                                <a href="../empleados.html" id="cancelar">Cancelar</a>
+                                <button id="guardar-empleado-btn" disabled>Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </main>
+            </div>
+
+            <script src="../../js/index.js"></script>
+            <script src="../../js/menu.js"></script>
+            <script type="module" src="../../js/Empleados/modifyEmployee.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>

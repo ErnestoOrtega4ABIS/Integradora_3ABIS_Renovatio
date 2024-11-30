@@ -1,0 +1,411 @@
+h1 {
+    margin-bottom: 1rem;
+}
+
+[class^="icon-"] {
+    font-size: 5vmin;
+    float: center;
+    color: #f9a825;
+}
+/* Contenedor principal */
+.header-bar {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+/* Contenedor para el título y el párrafo alineados a la izquierda */
+.header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Título */
+.header-text h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: #fff;
+}
+
+/* Párrafo */
+.header-text p {
+    font-size: 1rem;
+    margin: 0;
+    color: #ccc;
+    margin-top: 1rem;
+}
+
+/* Barra de búsqueda alineada a la derecha */
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    background-color: #333;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-top: 10px; /* Espacio entre el texto y la barra de búsqueda */
+}
+
+/* Estilo para el icono de búsqueda */
+.search-bar i {
+    font-size: 1.2rem;
+    color: #f9a825;
+}
+
+/* Estilo para el campo de entrada */
+.search-bar input[type="text"] {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 0.9rem;
+    outline: none;
+    padding: 0;
+    width: 200px;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+
+/* Contenedor responsivo para la tabla */
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px;
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border: 2px solid #666;
+    text-align: center;
+}
+
+thead {
+    background: linear-gradient(45deg, #f1e134, #f9a825);
+}
+
+tbody tr:nth-child(even) {
+    background-color: #4e4e4e;
+}
+
+/* Botones de acción dentro de la tabla */
+.action-icons {
+    display: flex;
+    gap: 5px;
+}
+
+
+.action-icons button img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Estilos generales para los botones */
+button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente los botones */
+    align-items: center; /* Alinear verticalmente */
+    margin: 20px auto; /* Espaciado superior e inferior */
+    padding: 10px 0; /* Espaciado interno */
+    background-color: #545454; /* Fondo del contenedor */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: 100%; /* Asegurar que ocupe el ancho completo */
+    max-width: calc(100% - 20px); /* Restar márgenes del contenedor */
+    box-sizing: border-box; /* Incluir padding y border en el ancho */
+    overflow-x: auto; /* Habilitar scroll horizontal si es necesario */
+    white-space: nowrap; /* Evitar saltos de línea en los botones */
+    margin-bottom: 50px;
+}
+
+@media (max-width: 920px) {
+    .pagination-container {
+        padding: 10px; /* Reducir padding en pantallas pequeñas */
+        padding-bottom: 15px;
+        margin-bottom: 100px;
+    }
+
+    .pagination-btn {
+        font-size: 14px; /* Reducir el tamaño de los botones */
+        padding: 6px; /* Reducir el padding de los botones */
+    }
+}
+
+.pagination-btn {
+    padding: 8px 12px; /* Tamaño de los botones */
+    margin: 0 5px; /* Espaciado entre botones */
+    border: none;
+    background-color: #e3ab1d; /* Color del botón */
+    color: #fff; /* Color del texto */
+    border-radius: 3px; /* Bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave al hover */
+}
+
+.pagination-btn.active {
+    background-color: #ff8000; /* Color del botón activo */
+    font-weight: bold; /* Negrita para el botón activo */
+}
+
+.pagination-btn:hover {
+    background-color: #826724; /* Color al pasar el mouse */
+    color: white;
+}
+
+
+/* Botón específico para "Agregar Proyecto" */
+#agregar-proyecto {
+    background: linear-gradient(45deg, #dcbd40, #d89d1b); /* Degradado de verde claro a verde oscuro */
+    color: white; /* Color del texto */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+#agregar-proyecto:hover {
+    background: linear-gradient(45deg, #b99322, #d17a0f); /* Degradado más claro al pasar el cursor */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+}
+/* Estilos comunes para ambos botones */
+.action-icons {
+    display: flex; /* Asegura que los botones se dispongan en línea */
+    justify-content: center; /* Centra horizontalmente los botones */
+    align-items: center; /* Centra verticalmente los botones */
+    gap: 10px; /* Espaciado entre los botones */
+    padding: 5px; /* Espaciado interno del contenedor */
+}
+
+.action-icons a.modificar,
+.action-icons button.eliminar {
+    display: inline-flex; /* Alineación */
+    align-items: center;
+    justify-content: center;
+    width: 50px; /* Tamaño uniforme */
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none; /* Elimina el subrayado en el enlace */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    padding: 0; 
+}
+
+a.modificar {
+    background: linear-gradient(45deg, #1e90ff, #00bfff);
+}
+
+a.modificar:hover {
+    background: linear-gradient(45deg, #0b549d, #1e90ff);
+}
+
+button.eliminar {
+    background: linear-gradient(45deg, #a53434, #d63131);
+    margin-top: 15px;
+}
+
+button.eliminar:hover {
+    background: linear-gradient(45deg, #5e1e1e, #ff4d4d);
+}
+
+/* Estilos para las imágenes dentro de los botones */
+.icon-img {
+    width: 22px;
+    height: 22px;
+}
+
+.guardar{
+    margin-top: 15px;
+    background: linear-gradient(45deg, #f1e134, #f9a825);
+    display: inline-flex; /* Alineación */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 150px; /* Tamaño uniforme */
+    height: 50px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #eee;
+    text-decoration: none; /* Elimina el subrayado en el enlace */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    padding: 0; /* Elimin    background: linear-gradient(45deg, #f1e134, #f9a825);
+    a el padding adicional */
+}
+
+.guardar:hover{
+    background: linear-gradient(45deg, #a49922, #61410c);
+
+}
+
+
+/* Ajuste del contenido para centrarlo */
+p{
+    margin-bottom: 1.5rem;
+}
+
+.ubicacion{
+    margin-bottom: 1rem;
+}
+
+.ubicacion a{
+    text-decoration: underline;
+    color: goldenrod;
+}
+
+#modal-proyecto {
+    display: flex;
+    flex-direction: column;
+    align-items: normal;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #444; 
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+#form-proyecto label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #fff; 
+    display: block;
+    width: 100%;
+}
+
+#form-proyecto input[type="text"],
+#form-proyecto input[type="date"],
+#form-proyecto select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: #fff;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    background-color: #333;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: #fff; 
+}
+
+#form-proyecto input[type="text"]:focus,
+#form-proyecto input[type="date"]:focus,
+#form-proyecto select:focus {
+    border-color: #ff9800; /* Color de borde al enfoque */
+    outline: none;
+}
+
+/* Estilos para el select de clientes */
+#form-proyecto select {
+    background-color: #333;
+    color: #fff;
+    appearance: none;
+    cursor: pointer;
+}
+
+/* Estilos para los campos de solo lectura */
+#form-proyecto input[readonly] {
+    background-color: #333;
+    color: #6c757d;
+}
+
+#cancelar-proyecto{
+    background: linear-gradient(45deg, #f65847, #ea0000);
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 40%;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    text-decoration: none;
+    margin-left: 1.5rem;
+    margin-right: 2rem;
+}
+
+#cancelar:hover{
+    background: linear-gradient(45deg, #763730, #601515);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Botón de guardar */
+#guardar-proyecto-btn {
+    background: linear-gradient(45deg, #f1e134, #f9a825);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 40%;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#guardar-proyecto-btn:hover {
+    background: linear-gradient(45deg, #97900c, #824f08); /* Cambia a un tono más oscuro en hover */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.15); /* Sombra más intensa en hover */
+}
+
+#guardar-proyecto-btn:disabled {
+    background: #c0c0c0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Diseño adaptable para pantallas pequeñas */
+@media (max-width: 900px) {
+    #modal-proyecto {
+        padding: 15px;
+        width: 100%;
+        padding-bottom: 100px;
+    }
+    
+    #form-proyecto label,
+    #form-proyecto input[type="text"],
+    #form-proyecto input[type="date"],
+    #form-proyecto select,
+    #guardar-proyecto-btn {
+        font-size: 0.9rem;
+    }
+}
+

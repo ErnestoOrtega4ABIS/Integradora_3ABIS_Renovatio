@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="../../js/authfront.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Proyectos - RenovatioGC</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/styles_proyectos.css">
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+
+<body>
+    <div class="main-container">
+
+        <div id="loadingScreen" class="loading-screen">
+            <div class="spinner"></div>
+            <p>Conectando, por favor espera...</p>
+        </div>
+        <div id="appContent" style="display: none;">
+            <header>
+                <div class="nombre-principal">
+                    <img src="../../img/favicon.ico" alt="Company Logo" class="logo"> <!-- Imagen del logo -->
+                    Renovatio.GC
+                </div>
+                
+                <div class="info-usuario">
+                    <span id="usuario-loggeado">Bienvenido, Usuario</span>
+                    <button id="admin-cuenta-btn" class="menu-cuenta-btn"><img id="foto-usuario"
+                            src="../../img/default-avatar.png" alt="Foto de perfil" class="foto-usuario"></button>
+                    <ul id="account-menu" class="account-menu oculto">
+                        <li><a href="../modificar_datos/modificar_credenciales.html" id="change-password-option">Cambiar
+                                Credenciales</a></li>
+                        <li><a href="#" id="logout-option">Cerrar Sesión</a></li>
+                    </ul>
+                </div>
+
+                <!-- Checkbox para el menú hamburguesa -->
+                <input type="checkbox" checked id="btn-menu" style="display: none;">
+                <label for="btn-menu" class="menu-icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </label>
+            </header>
+
+            <!-- Modal para Agregar/Modificar Proyecto -->
+            <div class="contenedor">
+                <nav class="menu" id="menu" style="transform: translateX(-100%);">
+                    <ul>
+                        <li><a href="../../home.html">Inicio</a></li>
+                        <li>
+                            <a class="activo" href="#" onclick="toggleSubmenu('proyectos')">Proyectos</a>
+                            <ul id="submenu-proyectos" class="submenu oculto">
+                                <li><a class="activo" href="../agregar_datos/añadir_proyecto.html" id="nuevo-proyectos">Nuevo</a></li>
+                                <li><a href="../proyectos.html" id="admin-proyectos">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('clientes')">Clientes</a>
+                            <ul id="submenu-clientes" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_cliente.html" id="nuevo-clientes">Nuevo</a></li>
+                                <li><a href="../clientes.html" id="admin-clientes">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('asignaciones')">Asignaciones</a>
+                            <ul id="submenu-asignaciones" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_asignacion.html" id="nuevo-asignaciones">Nuevo</a>
+                                </li>
+                                <li><a href="../asignaciones.html" id="admin-asignaciones">Administrar</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" onclick="toggleSubmenu('empleados')">Empleados</a>
+                            <ul id="submenu-empleados" class="submenu oculto">
+                                <li><a href="../agregar_datos/añadir_empleado.html" id="nuevo-empleados">Nuevo</a></li>
+                                <li><a href="../empleados.html" id="admin-empleados">Administrar</a></li>
+                            </ul>
+                            <li>
+                                <a href="#" onclick="toggleSubmenu('registro')" id="registro-menu">Registro</a>
+                                <ul id="submenu-registro" class="submenu oculto">
+                                    <li><a href="añadir_credenciales.html" id="nuevo-empleados">Crear Credenciales</a></li>
+                                </ul>
+                            </li>
+                        </li>
+                        <li><a href="../sitio.html">Sitio Web</a></li>
+                    </ul>
+                </nav>
+
+                <main class="contenido">
+                    <nav class="ubicacion">
+                        <a href="../../home.html">Inicio</a> /
+                        <a href="../proyectos.html">Administrar Proyectos</a> /
+                        <a href="#">Nuevo Proyecto</a>
+                    </nav>
+
+                    <h1>Agregar Proyecto</h1>
+                    <p>Bienvenido. Aquí podrás añadir nuevos proyectos, asegura llenar todos los campos.</p>
+
+                    <div id="modal-proyecto">
+                        <form id="form-proyecto">
+                            <label for="nombre-proyecto">Nombre Proyecto:</label>
+                            <input type="text" id="nombre-proyecto" name="nombre" required>
+    
+                            <label for="area-proyecto">Área de Terreno (m²):</label>
+                            <input type="text" id="area-proyecto" name="area" required>
+    
+                            <label for="fecha-inicio-proyecto">Fecha de Inicio:</label>
+                            <input type="date" id="fecha-inicio-proyecto" name="fecha-inicio" required>
+                            <span id="mensaje-error-fecha" style="color: rgb(255, 166, 0); display: none;">La fecha de inicio no puede ser menor a la actual.</span>
+                            <br>
+    
+                            <label for="fecha-fin-proyecto">Fecha de Fin:</label>
+                            <input type="date" id="fecha-fin-proyecto" name="fecha-fin" required>
+                            <span id="mensaje-error-fecha-fin" style="color: rgb(255, 183, 0); display: none;">La fecha de fin debe ser posterior a la fecha de inicio.</span>
+                            <br>
+    
+                            <label for="cliente-correo-proyecto">Seleccione un cliente:</label>
+                            <select id="cliente-correo-proyecto" onchange="mostrarDetallesCliente()" required>
+                                <option value="">Seleccione un cliente</option>
+                            </select>
+    
+                            <label for="cliente-nombre-proyecto">Nombre Completo:</label>
+                            <input type="text" id="cliente-nombre-proyecto" readonly>
+    
+                            <label for="cliente-telefono-proyecto">Teléfono:</label>
+                            <input type="text" id="cliente-telefono-proyecto" readonly>
+    
+                            <label for="tipo-proyecto">Tipo de Proyecto:</label>
+                            <select id="tipo-proyecto" name="tipo" required>
+                            </select>
+    
+                            <a href="../proyectos.html" id="cancelar-proyecto">Cancelar</a>
+                            <button id="guardar-proyecto-btn" onclick="guardarProyecto()" disabled>Guardar</button>
+                        </form>
+                    </div>
+                </main>
+            </div>
+
+            <script src="../../js/index.js"></script>
+            <script src="../../js/menu.js"></script>
+            <script type="module" src="../../js/Proyectos/addProject.js"></script>
+        </div>
+    </div>
+</body>
+
+</html>
