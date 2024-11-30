@@ -1,0 +1,264 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 1rem;
+    padding: 0;
+    background-color: #2b2b2b;
+}
+
+h2 {
+    background: linear-gradient(45deg, #ffeb3b, #f9a825); /* Degradado amarillo */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    border-radius: 15px; /* Bordes redondeados */
+}
+
+header {
+    background: linear-gradient(45deg, #ffeb3b, #f9a825); /* Degradado amarillo */
+    padding: 10px 0;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    border-radius: 15px; /* Bordes redondeados */
+    margin-top: 0;
+    margin-bottom: 1rem; /* Elimina margen superior */
+    margin-left: 0;
+    margin-right: 0;
+    position: fixed; /* Barra de navegación fija */
+    top: 0;
+    width: calc(100%); /* Ajusta el ancho */
+    z-index: 1000; /* Asegura que esté por encima del contenido */
+}
+
+main {
+    flex: 1;
+    text-align: center;
+    margin-top: 100px; /* Ajusta para evitar que el contenido se solape con el header */
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.left-side, .right-side {
+    display: flex;
+    align-items: center;
+}
+
+.right-side {
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+.logo {
+    height: 60px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.company-name {
+    font-size: 24px;
+}
+
+nav {
+    margin: 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+.nav-links li {
+    transition: transform 0.3s ease;
+}
+
+.nav-links li:hover {
+    transform: scale(1.1);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-links a.active {
+    background-color: #f9a825; /* Color de fondo resaltado */
+    color: white; /* Color del texto */
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* Imagen flotante */
+.promo-img {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Sombra para efecto flotante */
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
+    margin: 10px auto;
+    animation: floatEffect 5s infinite alternate; /* Efecto de flotación */
+}
+
+footer {
+    background: linear-gradient(45deg, #ffeb3b, #f9a825); /* Degradado amarillo */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para efecto flotante */
+    border-radius: 15px; /* Bordes redondeados */
+    margin: 10px 20px; /* Añadir margen para mejorar el efecto flotante */
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: black;
+}
+
+.contact-item img {
+    width: 30px; /* Ajusta el tamaño según sea necesario */
+    height: 30px;
+    margin-bottom: 2px; /* Espacio pequeño entre el ícono y el texto */
+}
+
+.contact-item a {
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para las líneas separadoras */
+.separator {
+    width: 1px;
+    height: 40px; /* Altura igual o mayor a los íconos */
+    background-color: black; /* Línea negra */
+    margin: 0 10px; /* Espaciado mínimo a los lados */
+}
+
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(45deg, #ffeb3b, #f9a825); /* Degradado amarillo */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .right-side {
+        justify-content: flex-end;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+h3 {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animación flotante para darle un ligero movimiento */
+header, footer {
+    animation: floatEffect 3s infinite alternate;
+}
+
+@keyframes floatEffect {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+
+/* Animación flotante para las imágenes */
+@keyframes floatEffectImage {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-15px); /* Un poco más de flotación para las imágenes */
+    }
+}
+
+.promo-img {
+    animation: floatEffectImage 6s infinite alternate; /* Animación flotante para las imágenes */
+}

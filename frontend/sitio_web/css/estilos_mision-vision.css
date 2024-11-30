@@ -1,0 +1,79 @@
+.mision-vision {
+    padding: 0 2rem; /* Mínimo de 2rem desde las orillas de la pantalla */
+}
+
+.mision-vision .wrapper {
+    display: flex;
+    justify-content: space-between; /* Separación uniforme */
+    align-items: flex-start; /* Alinea los elementos al inicio */
+    gap: 2rem; /* Espaciado entre las dos secciones */
+    flex-wrap: wrap; /* Ajusta el diseño en pantallas pequeñas */
+}
+
+.mision-vision .mision,
+.mision-vision .vision {
+    flex: 1;
+    max-width: 48%; /* Ocupa casi la mitad del ancho */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+.mision-vision h2 {
+    font-size: 28px; /* Tamaño del encabezado */
+    text-align: center;
+    margin-bottom: 1rem; /* Distancia de 1rem debajo del título */
+}
+
+.mision-vision .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem; /* Espaciado entre texto e imagen */
+}
+
+.mision-vision .text-left,
+.mision-vision .text-right {
+    flex: 1;
+    margin: 0 1rem; /* Margen lateral de 1rem */
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+#mision-vision p {
+    color: #ffffff; /* Cambia este código de color por el que desees */
+}
+
+.mision-vision .img-left,
+.mision-vision .img-right {
+    flex: 0 0 150px; /* Tamaño fijo para las imágenes */
+    text-align: center;
+    order: 2; /* Mantén siempre las imágenes a la derecha */
+}
+
+.mision-vision .text-left,
+.mision-vision .text-right {
+    order: 1; /* Mantén siempre el texto a la izquierda */
+}
+
+.mision-vision .img-left img,
+.mision-vision .img-right img {
+    max-width: 100%; /* Escala la imagen dentro de su contenedor */
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .mision-vision .wrapper {
+        flex-direction: column; /* Cambia a formato vertical en pantallas pequeñas */
+    }
+
+    .mision-vision .mision,
+    .mision-vision .vision {
+        max-width: 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+
+    .mision-vision .content {
+        flex-direction: column; /* Alinea imagen y texto verticalmente */
+    }
+}
